@@ -1,0 +1,683 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.opensensemap.org/SENPH#"
+     xml:base="http://www.opensensemap.org/SENPH"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:uo5="http://purl.obolibrary.org/obo/uo5.owl"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:SENPH="http://www.opensensemap.org/SENPH#">
+    <owl:Ontology rdf:about="http://www.opensensemap.org/SENPH">
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/uo5.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#canMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#canMeasure">
+        <owl:inverseOf rdf:resource="http://www.opensensemap.org/SENPH#measurableBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensorElement"/>
+        <rdfs:range rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+        <rdfs:comment xml:lang="en">Relation between a sensor element and a phenomenon, that determines the ability of a sensor element to detect the phenomenon.</rdfs:comment>
+        <rdfs:label xml:lang="en">can measure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#describedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#describedBy">
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <rdfs:comment xml:lang="en">Relation that connects a phenomenon with the units it can described in.</rdfs:comment>
+        <rdfs:label xml:lang="en">described by unit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#hasAccuracyUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#hasAccuracyUnit">
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensorElement"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <rdfs:comment xml:lang="en">Describes the unit in that the accuracy of a sensor element is given.</rdfs:comment>
+        <rdfs:label xml:lang="en">has unit of accuracy value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#hasDomain -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#hasDomain">
+        <owl:inverseOf rdf:resource="http://www.opensensemap.org/SENPH#isDomainOf"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+        <rdfs:range rdf:resource="http://www.opensensemap.org/SENPH#domain"/>
+        <rdfs:comment xml:lang="en">Describes the relation of a phenomenon to a domain it describes some characteristic of.</rdfs:comment>
+        <rdfs:label xml:lang="en">has domain</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#hasElement -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#hasElement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.opensensemap.org/SENPH#isElementOf"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:range rdf:resource="http://www.opensensemap.org/SENPH#sensorElement"/>
+        <rdfs:comment xml:lang="en">Describes the relation between a entity of sensor and its sensor elements</rdfs:comment>
+        <rdfs:label xml:lang="en">has element</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#hasSensor -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#hasSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.opensensemap.org/SENPH#isSensorOf"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#device"/>
+        <rdfs:range rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:comment xml:lang="en">Describes the relation between a entity of device and its physical components sensors</rdfs:comment>
+        <rdfs:label xml:lang="en">has sensor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#isDomainOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#isDomainOf">
+        <rdfs:comment xml:lang="en">Describes the relation of a domain to the phenomena it is described by.</rdfs:comment>
+        <rdfs:label xml:lang="en">is Domain of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#isElementOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#isElementOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">Describes the relation between a physical component of kind sensor element and the hosting sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">is element of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#isSensorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#isSensorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">Describes the relation between a physical component of kind sensor  and the hosting device.</rdfs:comment>
+        <rdfs:label xml:lang="en">is sensor of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#measurableBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.opensensemap.org/SENPH#measurableBy">
+        <rdfs:comment xml:lang="en">Relation between a phenomenon and a sensor element, that describes by which sensor elements the phenomena can be measured.</rdfs:comment>
+        <rdfs:label xml:lang="en">measurable by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#accuracyValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#accuracyValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensorElement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">The plus minus value of accuracy of a sensor&apos;s sensor element.</rdfs:comment>
+        <rdfs:label xml:lang="en">Value of Accuracy</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#dataSheet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#dataSheet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The URL to the data sheet of a sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Data Sheet</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#hasContact -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#hasContact">
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A relation that connects a device with an individual (for example person, institution or company), who is the maintainer or developer of the device.</rdfs:comment>
+        <rdfs:label xml:lang="en">has contact</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#image -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#image">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#device"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The URL to an images of the sensor. Ideally an illustration instead of a photography.</rdfs:comment>
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#isValid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#isValid">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#lifePeriod -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#lifePeriod">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">The average life period of a sensor. Typically given by the manufacturer of a sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Life period</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#manufacturer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#manufacturer">
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The manufacturer of a sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#priceInEuro -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#priceInEuro">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Gives the approximate prices of a sensor in Euro, by a float value.</rdfs:comment>
+        <rdfs:label xml:lang="en">Price in Euro</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#website -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opensensemap.org/SENPH#website">
+        <rdfs:domain rdf:resource="http://www.opensensemap.org/SENPH#device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The website of the devices&apos; project, maintainer, developer or contact person.</rdfs:comment>
+        <rdfs:label xml:lang="en">Website</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#HDC1080 -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#HDC1080">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#airTemperature -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#airTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#climatePhenomena -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#climatePhenomena">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#domain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isDomainOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.opensensemap.org/SENPH#temperature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#device -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#device">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#hasSensor"/>
+                <owl:someValuesFrom rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isValid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#website"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#domain -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#domain">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isDomainOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isValid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#phenomenon -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#phenomenon">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#describedBy"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isValid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#pm10concentration -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#pm10concentration">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#relativeHumidity -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#relativeHumidity">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#sensor -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#sensor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#hasElement"/>
+                <owl:someValuesFrom rdf:resource="http://www.opensensemap.org/SENPH#sensorElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#manufacturer"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isValid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#dataSheet"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#lifePeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#priceInEuro"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#sensorElement -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#sensorElement">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#canMeasure"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#hasAccuracyUnit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isElementOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.opensensemap.org/SENPH#sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#isValid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#temperature -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#temperature">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#phenomenon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#describedBy"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000005"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#waterTemperature -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#waterTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#sensebox:home -->
+
+    <owl:Class rdf:about="http://www.opensensemap.org/SENPH#sensebox:home">
+        <rdfs:subClassOf rdf:resource="http://www.opensensemap.org/SENPH#device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opensensemap.org/SENPH#hasSensor"/>
+                <owl:someValuesFrom rdf:resource="http://www.opensensemap.org/SENPH#HDC1080"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#HDC1080 -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#HDC1080">
+        <hasElement rdf:resource="http://www.opensensemap.org/SENPH#humi_HDC1080"/>
+        <hasElement rdf:resource="http://www.opensensemap.org/SENPH#temp_HDC1080"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#airTemperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#airTemperature">
+        <describedBy rdf:resource="http://purl.obolibrary.org/obo/UO_0000012"/>
+        <measurableBy rdf:resource="http://www.opensensemap.org/SENPH#temp_HDC1080"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#climatePhenomena -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#climatePhenomena">
+        <isDomainOf rdf:resource="http://www.opensensemap.org/SENPH#relativeHumidity"/>
+        <isDomainOf rdf:resource="http://www.opensensemap.org/SENPH#temperature"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#device -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#device">
+        <hasSensor rdf:resource="http://www.opensensemap.org/SENPH#HDC1080"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#domain -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#domain"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#humi_HDC1080 -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#humi_HDC1080"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#phenomenon -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#phenomenon"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#pm10concentration -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#pm10concentration">
+        <rdf:type rdf:resource="http://www.opensensemap.org/SENPH#pm10concentration"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#relativeHumidity -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#relativeHumidity">
+        <measurableBy rdf:resource="http://www.opensensemap.org/SENPH#humi_HDC1080"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#sensor -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#sensor"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#sensorElement -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#sensorElement"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#temp_HDC1080 -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#temp_HDC1080"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#temperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#temperature"/>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#waterTemperature -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#waterTemperature">
+        <describedBy rdf:resource="http://purl.obolibrary.org/obo/UO_0000012"/>
+        <isValid rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isValid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opensensemap.org/SENPH#sensebox:home -->
+
+    <owl:NamedIndividual rdf:about="http://www.opensensemap.org/SENPH#sensebox:home">
+        <hasSensor rdf:resource="http://www.opensensemap.org/SENPH#HDC1080"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#device">
+        <rdfs:comment xml:lang="en">A device is a system that deploys at least one sensor and reads in the values of sensors. It has a physical packing.</rdfs:comment>
+        <rdfs:label xml:lang="en">Device</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#domain">
+        <rdfs:label xml:lang="en">Phenomena Domain</rdfs:label>
+        <rdfs:comment xml:lang="en">An abstract collection of phenomena, that are describe a certain domain.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#phenomenon">
+        <rdfs:comment xml:lang="en">An environmental phenomenon is a state or non-human entity that can be observed and measured in the context of environmental monitoring. It has a unique value for a given time and location.</rdfs:comment>
+        <rdfs:label xml:lang="en">Environmental Phenomenon</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#pm10concentration">
+        <rdfs:label xml:lang="en">PM10 concentration</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#relativeHumidity">
+        <rdfs:label xml:lang="en">relative Humidity</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#sensor">
+        <rdfs:label xml:lang="en">Sensor</rdfs:label>
+        <rdfs:comment xml:lang="en">A sensor element including its physical packaging and external connections (e.g., electrical or
+optical).
+
+Council, National R.: Expanding the Vision of Sensor Materials. Washington, DC : The National Academies Press, 1995</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#sensorElement">
+        <rdfs:comment xml:lang="en">A sensor element is the part of a sensor that measures a phenomenon. Excluding any other sensor components. There can be several sensor element on one sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sensor element</rdfs:label>
+        <rdfs:comment xml:lang="en">&quot;The fundamental transduction mechanism (e.g., a material) that converts one form of energy into another. Some sensors may incorporate more than one sensor element (e.g., a compound sensor). &quot;
+Council, National R.: Expanding the Vision of Sensor Materials. Washington, DC : The National Academies Press, 1995</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#device"/>
+            <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#domain"/>
+            <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#phenomenon"/>
+            <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#sensor"/>
+            <rdf:Description rdf:about="http://www.opensensemap.org/SENPH#sensorElement"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+
